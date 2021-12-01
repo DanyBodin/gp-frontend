@@ -1,1 +1,126 @@
 /* Other rules */
+body {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1, h2, p {
+    color: white;
+}
+
+h2 {
+    font-size: 20;
+    padding-left: 5px;
+}
+
+button {
+    background-color: red;
+    color: white;
+    font-size: 30px;
+    align-items: center;
+}
+
+.headercontainer {
+    border-bottom: 2px solid red;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.homecontainer {
+    width: 1200px;
+    background: linear-gradient(black, rgb(40,40,40));
+}
+
+.searchbar {
+    width: 900px;
+    height: 40px;
+    border-radius: 25px;
+    border: none;
+    background-color: rgb(40,40,40);
+}
+
+.titlecontainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.noframebutton {
+    background-color: transparent;
+    border: none;
+}
+
+.gamecard {
+    width: 300px;
+    height: 350px;
+    background-color: rgb(40,40,40);
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.gamecard img {
+    max-width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.cardcontainer {
+    width: 1244px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 150px;
+}
+
+.footercontainer {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 30px;
+}
+
+.signupform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.submitbutton {
+    width: 300px;
+    height: 30px;
+    border: none;
+    background-color: rgb(215, 0, 0);
+    text-align: center;
+    border-radius: 15px;
+}
+
+.signupcondition {
+    width: 300px;
+    font-size: 12px;
+    color: rgb(68, 68, 68);
+}
+
+.checkbox {
+    width: 25px;
+    height: 25px;
+    border-width: 3px;
+}
+
+.signupbutton {
+    width: 500px;
+    height: 30px;
+    margin: 20px 0;
+    padding: 0 0 4px 0;
+    text-align: left;
+    text-decoration: none;
+    border: 0;
+    border-bottom: 1px solid lightgray;
+    font-size: 16px;
+    color: rgb(188, 188, 188);
+    background-color: black;
+
+}
