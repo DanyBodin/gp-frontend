@@ -33,10 +33,14 @@ const Sign = ({ setUser }) => {
 
   return (
     <div className="signupmaincontainer">
-      <div className="signupleftcontent"></div>
-      <div className="container">
+      <div className="signupleftcontent">
+        <p>TEXTE HERE</p>
+        <p>TEXTE HERE</p>
+        <p>TEXTE HERE</p>
+      </div>
+      <div className="signuprightcontent">
         <form className="signupform" onSubmit={handleSubmit}>
-          <h1>S'inscrire</h1>
+          <h1>SIGN UP</h1>
           <input
             onChange={(event) => {
               setUsername(event.target.value);
@@ -55,14 +59,26 @@ const Sign = ({ setUser }) => {
             placeholder="Email"
             className="signupbutton"
           ></input>
-          <input
-            onChange={(event) => {
-              setPassword(event.target.value);
-            }}
-            type="password"
-            placeholder="Password"
-            className="signupbutton"
-          ></input>
+
+          <div className="passwordbox">
+            <input
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
+              type="password"
+              placeholder="Password"
+              className="passwordbutton"
+            ></input>
+            <input
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
+              type="password"
+              placeholder="Confirm Password"
+              className="passwordbutton"
+            ></input>
+          </div>
+
           <div className="signupletter">
             <input type="checkbox" className="checkbox"></input>
             <span>S'inscrire à notre newsletter</span>

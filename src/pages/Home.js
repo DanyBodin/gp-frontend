@@ -47,7 +47,7 @@ const Home = () => {
           {data.results.map((game, index) => {
             if (game.rating > 4.2) {
               return (
-                <div className="gamecard">
+                <div key={index} className="gamecard">
                   <img src={game.background_image} alt="game-card-img" />
                   <h2> {game.name} </h2>
                 </div>

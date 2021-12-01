@@ -32,45 +32,48 @@ const Sign = ({ setUser }) => {
   };
 
   return (
-    <div className="container">
-      <form className="signupform" onSubmit={handleSubmit}>
-        <h1>Se connecter</h1>
-        <input
-          onChange={(event) => {
-            setEmail(event.target.value);
-          }}
-          type="email"
-          value={email}
-          placeholder="Email"
-          className="signupbutton"
-        ></input>
+    <div className="signupmaincontainer">
+      <div className="signupleftcontent"></div>
+      <div className="signuprightcontent">
+        <form className="signupform" onSubmit={handleSubmit}>
+          <h1>Se connecter</h1>
+          <input
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
+            type="email"
+            value={email}
+            placeholder="Email"
+            className="signupbutton"
+          ></input>
 
-        <input
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-          type="password"
-          placeholder="Password"
-          className="signupbutton"
-        ></input>
+          <input
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
+            type="password"
+            placeholder="Password"
+            className="signupbutton"
+          ></input>
 
-        <input
-          className="submitbutton"
-          type="submit"
-          value={"Se connecter"}
-        ></input>
-        <Link
-          style={{
-            textDecoration: "none",
-            color: "grey",
-            fontSize: "12px",
-          }}
-          to="/signup"
-        >
-          <p>Pas encore de compte ? Inscris-toi !</p>
-        </Link>
-        {error ? <p style={{ color: "red" }}>{error}</p> : <> </>}
-      </form>
+          <input
+            className="submitbutton"
+            type="submit"
+            value={"Se connecter"}
+          ></input>
+          <Link
+            style={{
+              textDecoration: "none",
+              color: "grey",
+              fontSize: "12px",
+            }}
+            to="/signup"
+          >
+            <p>Pas encore de compte ? Inscris-toi !</p>
+          </Link>
+          {error ? <p style={{ color: "red" }}>{error}</p> : <> </>}
+        </form>
+      </div>
     </div>
   );
 };
