@@ -36,7 +36,7 @@ const Sign = ({ setUser }) => {
       <div className="signupleftcontent"></div>
       <div className="signuprightcontent">
         <form className="signupform" onSubmit={handleSubmit}>
-          <h1>Se connecter</h1>
+          <h1>LOGIN</h1>
           <input
             onChange={(event) => {
               setEmail(event.target.value);

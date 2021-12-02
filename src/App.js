@@ -9,6 +9,8 @@ import Review from "./pages/Review";
 import Footer from "./components/Footer";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import Game from "./pages/Game";
+import Collection from "./pages/Collection";
 
 function App() {
   const [token, setToken] = useState();
@@ -27,9 +29,11 @@ function App() {
       <Header token={token} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/signup" element={<Signup setUser={setUser} />}></Route>
-        <Route path="/login" element={<Login setUser={setUser} />}></Route>
-        <Route path="/Review" element={<Review setUser={setUser} />}></Route>
+        <Route path="/signup" element={<Signup setUser={setUser} />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/review" element={<Review setUser={setUser} />} />
+        <Route path="/game/:id" element={<Game />} />
+        <Route path="/collection" element={<Collection setUser={setUser} />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -11,7 +12,7 @@ const Home = () => {
       try {
         const response = await axios.get(
           "https://api.rawg.io/api/games?key=5a7fbaf7083f4bdb95deb7ee55437b66",
-          { params: { page_size: 50000 } }
+          { params: { page_size: 500 } }
         );
         console.log(response.data);
         setData(response.data);
@@ -27,12 +28,14 @@ const Home = () => {
   };
 
   return isLoading ? (
-    <p>processing ...</p>
+    <p>Processing ...</p>
   ) : (
     <div>
       <body>
         <div className="homecontainer"></div>
-        <h1>GAMEPAD</h1>
+
+        <p className="title">GAMEPAD</p>
+
         <form>
           <input className="searchbar" type="text" onChange={research}></input>
         </form>
@@ -43,18 +46,38 @@ const Home = () => {
           </span>
         </div>
 
+        <div className="filtering">
+          <h1>Most Revelant</h1>
+        </div>
+
         <div className="cardcontainer">
           {data.results.map((game, index) => {
-            if (game.rating > 4.2) {
+            if (game.rating > 4.3) {
               return (
-                <div key={index} className="gamecard">
-                  <img src={game.background_image} alt="game-card-img" />
-                  <h2> {game.name} </h2>
-                </div>
+                <Link className="gamecardlink" to={`/game/${game.name}`}>
+                  <div key={index} className="gamecard">
+                    <img src={game.background_image} alt="game-card-img" />
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        margin: "2px",
+                      }}
+                    >
+                      <h2> {game.name} </h2>
+                      <div className="metascorebox">
+                        <p className="metascoretext">{game.metacritic}</p>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
               );
             }
           })}
         </div>
+        <div>{data.next}</div>
       </body>
     </div>
   );
