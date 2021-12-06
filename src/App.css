@@ -35,12 +35,18 @@ button {
     height: 30px;
 }
 
+.title {
+    font-size: 80px;
+    color: white;
+}
+
 .headercontainer {
     border-bottom: 2px solid red;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 1200px;
 }
 
 .homecontainer {
@@ -99,6 +105,47 @@ button {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     object-fit: cover;
+}
+
+.gamedescription {
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rightgamepage {
+    width: 48%;
+}
+
+.leftgamepage {
+    width: 48%;
+}
+
+.gamepage img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.gamebuttons {
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    justify-content: flex-start
+}
+
+.gamebutton {
+    background: transparent;
+    border-radius: 10px;
+    border: 1 px solid white;
+}
+
+.gamedescriptiontext {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .cardcontainer {
@@ -199,6 +246,16 @@ button {
     background: linear-gradient(rgb(40,40,40), black);
 }
 
-.filtering {
+.reviewform {
+width: 900px;
+height: 600px;
+background-color: rgb(68, 68, 68);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
 
+textarea {
+    height: 200px;
 }

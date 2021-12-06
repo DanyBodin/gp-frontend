@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = ({ token, setUser }) => {
   const navigate = useNavigate();
+  const [collectionMessage, setCollectionMessage] = useState("");
 
   return (
     <div className="headercontainer">
@@ -19,6 +21,7 @@ const Header = ({ token, setUser }) => {
       >
         {token ? (
           <button
+            className="noframebutton"
             onClick={() => {
               navigate("/collection");
             }}
@@ -27,9 +30,11 @@ const Header = ({ token, setUser }) => {
           </button>
         ) : (
           <button
+            className="noframebutton"
             onClick={() => {
               setUser(null);
               navigate("/");
+              setCollectionMessage("Signup or login to acces your collection");
             }}
           >
             MY COLLECTION

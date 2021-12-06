@@ -79,4 +79,3 @@ const Sign = ({ setUser }) => {
 };
 
 export default Sign;
-//"token":"2kag515rlEhJHbHbd7RvVqKEzOH9dD2lMhQCcAA2fprsmsRPLXMdp7dPwzAdACgF"

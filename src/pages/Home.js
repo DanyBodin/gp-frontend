@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Home = () => {
+const Home = ({ setGame }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState("");
   const [search, setSearch] = useState();
@@ -12,7 +13,7 @@ const Home = () => {
       try {
         const response = await axios.get(
           "https://api.rawg.io/api/games?key=5a7fbaf7083f4bdb95deb7ee55437b66",
-          { params: { page_size: 500 } }
+          { params: { page_size: 50000 } }
         );
         console.log(response.data);
         setData(response.data);
@@ -38,6 +39,7 @@ const Home = () => {
 
         <form>
           <input className="searchbar" type="text" onChange={research}></input>
+          <FontAwesomeIcon icon="search" className="search-input-icon" />
         </form>
 
         <div>
@@ -52,29 +54,33 @@ const Home = () => {
 
         <div className="cardcontainer">
           {data.results.map((game, index) => {
-            if (game.rating > 4.3) {
-              return (
-                <Link className="gamecardlink" to={`/game/${game.name}`}>
-                  <div key={index} className="gamecard">
-                    <img src={game.background_image} alt="game-card-img" />
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        margin: "2px",
-                      }}
-                    >
-                      <h2> {game.name} </h2>
-                      <div className="metascorebox">
-                        <p className="metascoretext">{game.metacritic}</p>
-                      </div>
+            return (
+              <Link
+                className="gamecardlink"
+                to={`/games`}
+                onClick={() => {
+                  setGame(game.name);
+                }}
+              >
+                <div key={index} className="gamecard">
+                  <img src={game.background_image} alt="game-card-img" />
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      margin: "2px",
+                    }}
+                  >
+                    <h2> {game.name} </h2>
+                    <div className="metascorebox">
+                      <p className="metascoretext">{game.metacritic}</p>
                     </div>
                   </div>
-                </Link>
-              );
-            }
+                </div>
+              </Link>
+            );
           })}
         </div>
         <div>{data.next}</div>

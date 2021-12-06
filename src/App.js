@@ -14,6 +14,7 @@ import Collection from "./pages/Collection";
 
 function App() {
   const [token, setToken] = useState();
+  const [game, setGame] = useState();
 
   const setUser = (token) => {
     if (token) {
@@ -28,11 +29,31 @@ function App() {
     <Router>
       <Header token={token} setUser={setUser} />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route
+          path="/"
+          element={
+            <Home
+              token={token}
+              setUser={setUser}
+              game={game}
+              setGame={setGame}
+            />
+          }
+        ></Route>
         <Route path="/signup" element={<Signup setUser={setUser} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/review" element={<Review setUser={setUser} />} />
-        <Route path="/game/:id" element={<Game />} />
+        <Route
+          path={"/games"}
+          element={
+            <Game
+              token={token}
+              setUser={setUser}
+              game={game}
+              setGame={setGame}
+            />
+          }
+        />
         <Route path="/collection" element={<Collection setUser={setUser} />} />
       </Routes>
       <Footer />
