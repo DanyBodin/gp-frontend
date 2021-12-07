@@ -16,19 +16,21 @@ const Review = ({ setUser }) => {
         review_title: reviewTitle,
         review_text: reviewText,
       });
-      console.log(response.data);
+      console.log(response.data.token);
+      if (response.data.token) {
+        setUser(response.data.token);
+        navigate("/");
+      }
     } catch (error) {
-      console.log(error.message);
-      console.log(error.response);
-
       if (error.response) {
         setError(error.response.data.message);
+        console.log(error);
       }
     }
   };
 
   return (
-    <div>
+    <div className="reviewcontainer">
       <form className="reviewform" onSubmit={handleSubmit}>
         <h1>REVIEW THIS GAME</h1>
         <input
@@ -54,7 +56,7 @@ const Review = ({ setUser }) => {
         ></textarea>
 
         <input
-          className="submitbutton"
+          className="publishbutton"
           type="submit"
           value={"publish"}
           style={{ color: "white" }}

@@ -15,6 +15,8 @@ import Collection from "./pages/Collection";
 function App() {
   const [token, setToken] = useState();
   const [game, setGame] = useState();
+  const [slug, setSlug] = useState();
+  const [gameId, setGameId] = useState();
 
   const setUser = (token) => {
     if (token) {
@@ -37,6 +39,10 @@ function App() {
               setUser={setUser}
               game={game}
               setGame={setGame}
+              slug={slug}
+              setSlug={setSlug}
+              gameId={gameId}
+              setGameId={setGameId}
             />
           }
         ></Route>

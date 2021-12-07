@@ -6,8 +6,6 @@ const Game = ({ token, setUser, game }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState("");
 
-  console.log(game);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -33,7 +31,10 @@ const Game = ({ token, setUser, game }) => {
         </div>
         <div className="rightgamepage">
           <div className="gamebuttons">
-            <button className="gamebutton">SAVE TO COLLECTION</button>
+            <div className="gamebutton">
+              <button>SAVE TO COLLECTION</button>
+            </div>
+
             <Link to="/review">
               <button className="gamebutton">REVIEW THE GAME</button>
             </Link>
@@ -43,8 +44,10 @@ const Game = ({ token, setUser, game }) => {
             <div className="leftdescription">
               <p>Plateforms</p>
               <div>
-                {data.platforms.map((platform, index) => {
-                  return <p>{platform.name}</p>;
+                {data.platforms.map((obj, i) => {
+                  return (
+                    <span style={{ color: "white" }}>{obj.platform.name}</span>
+                  );
                 })}
               </div>
               <p>Realeased date</p>
@@ -54,8 +57,18 @@ const Game = ({ token, setUser, game }) => {
             </div>
             <div className="rigthdescription">
               <p>Genre</p>
+              <div>
+                {data.genres.map((genre, i) => {
+                  return <span style={{ color: "white" }}>{genre.name}</span>;
+                })}
+              </div>
               <p>Developper</p>
               <p>Age rating</p>
+              <div>
+                <span style={{ color: "white" }}>
+                  {data.esrb_rating.name_en}
+                </span>
+              </div>
             </div>
           </div>
         </div>

@@ -22,8 +22,8 @@ const Sign = ({ setUser }) => {
         navigate("/");
       }
     } catch (error) {
-      console.log(error.message);
-      console.log(error.response);
+      //console.log(error.message);
+      //console.log(error.response);
 
       if (error.response) {
         setError(error.response.data.message);
