@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Home = ({ setGame }) => {
+const Home = ({ setGame, setGameId }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState("");
   const [search, setSearch] = useState();
@@ -60,6 +60,7 @@ const Home = ({ setGame }) => {
                 to={`/games`}
                 onClick={() => {
                   setGame(game.name);
+                  setGameId(game.id);
                 }}
               >
                 <div key={index} className="gamecard">

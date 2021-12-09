@@ -2,6 +2,8 @@
 
 :root {
     --dark-grey : rgb(40,40,40);
+    --light-grey: rgb(100,100,100);
+    --main-red :rgb(215,0,0);
 }
 
 
@@ -45,7 +47,7 @@ h2 {
 }
 
 .headercontainer {
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid var(--main-red);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -153,6 +155,11 @@ h2 {
     align-items: center;
 }
 
+.gamecardsubtitle {
+    color: var(--light-grey);
+    margin-bottom: 5px;
+}
+
 .cardcontainer {
     width: 1244px;
     display: flex;
@@ -179,7 +186,7 @@ h2 {
     width: 300px;
     height: 30px;
     border: none;
-    background-color: rgb(215, 0, 0);
+    background-color: var(--main-red);
     text-align: center;
     border-radius: 15px;
 }
@@ -238,7 +245,7 @@ h2 {
 .signupleftcontent {
     width: 50%;
     height: 100%;
-    border-right: 1px solid red;
+    border-right: 1px solid var(--main-red);
     background: linear-gradient(black, var(--dark-grey));
 }
 
@@ -272,4 +279,57 @@ h2 {
 
 .publishbutton {
     margin-top: 100px;
+}
+
+.reviewsfooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.reviewscontainer {
+    width: 1050px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.reviewsbox {
+    background-color: var(--dark-grey);
+    height: 120px;
+    border-radius: 10px;
+    color: white;
+    width: 70%;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.reviewboxfooter , .reviewstitle {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+}
+
+.ribboncontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 1200px;
+}
+
+.ribboncard {
+    width: 235px;
+    height: 275px;
+    background: linear-gradient(var(--light-grey), black);
+    margin-left: 5px;
+    color: white;
+    border-radius: 10px;
+}
+
+.serielink {
+    text-decoration: none;
+    color: white;
 }

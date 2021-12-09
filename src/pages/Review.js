@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-const Review = ({ setUser }) => {
+const Review = ({ setUser, gameId, token }) => {
   const [reviewTitle, setReviewTitle] = useState();
   const [reviewText, setReviewText] = useState();
   const [error, setError] = useState();
@@ -15,8 +15,9 @@ const Review = ({ setUser }) => {
       const response = await axios.post("http://localhost:4000/user/review", {
         review_title: reviewTitle,
         review_text: reviewText,
+        game_id: gameId,
       });
-      console.log(response.data.token);
+      console.log(response.data.token, gameId);
       if (response.data.token) {
         setUser(response.data.token);
         navigate("/");

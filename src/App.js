@@ -48,7 +48,10 @@ function App() {
         ></Route>
         <Route path="/signup" element={<Signup setUser={setUser} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/review" element={<Review setUser={setUser} />} />
+        <Route
+          path="/review"
+          element={<Review token={token} setUser={setUser} gameId={gameId} />}
+        />
         <Route
           path={"/games"}
           element={
@@ -57,6 +60,7 @@ function App() {
               setUser={setUser}
               game={game}
               setGame={setGame}
+              gameId={gameId}
             />
           }
         />
