@@ -6,7 +6,6 @@
     --main-red :rgb(215,0,0);
 }
 
-
 /* Other rules */
 body {
     background-color: black;
@@ -35,10 +34,11 @@ h2 {
     color: white;
     font-size: 20px;
     align-items: center;
-    width: 120px;
+    width: 125px;
     border-radius: 10px;
     border: none;
-    height: 30px;
+    height: 45px;
+    margin-left: 5px;
 }
 
 .title {
@@ -55,9 +55,33 @@ h2 {
     width: 1200px;
 }
 
-.homecontainer {
+.homecontainer  {
     width: 1200px;
     background: linear-gradient(black, rgb(40,40,40));
+}
+
+.collectioncontainer {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.collectionboard {
+    display: flex;
+    flex-direction: row;
+    width: 1200px;
+    justify-content: flex-start;
+}
+
+.collectioncard {
+    width: 300px;
+    height: 350px;
+    background: linear-gradient( var(--light-grey), black);
+    margin-left: 5px;
+    border-radius: 20px;
+    margin-top: 10px;
 }
 
 .searchbar {
@@ -66,6 +90,7 @@ h2 {
     border-radius: 25px;
     border: none;
     background-color: rgb(40,40,40);
+    padding-left: 50px;
 }
 
 .titlecontainer {
@@ -75,6 +100,7 @@ h2 {
 .noframebutton {
     background-color: transparent;
     border: none;
+    color: white;
 }
 
 .gamecard {

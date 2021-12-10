@@ -8,7 +8,10 @@ const Header = ({ token, setUser }) => {
   return (
     <div className="headercontainer">
       <div className="titlecontainer">
-        <Link to="/" style={{ textDecoration: "none", fontSize: "50px" }}>
+        <Link
+          to="/"
+          style={{ textDecoration: "none", fontSize: "50px", color: "white" }}
+        >
           GAMEPAD
         </Link>
       </div>
@@ -23,7 +26,7 @@ const Header = ({ token, setUser }) => {
           <button
             className="noframebutton"
             onClick={() => {
-              navigate("/collection");
+              navigate("/user/collection");
             }}
           >
             MY COLLECTION
@@ -44,6 +47,7 @@ const Header = ({ token, setUser }) => {
       <div>
         {token ? (
           <button
+            className="mainbutton"
             onClick={() => {
               setUser(null);
               navigate("/");
@@ -54,10 +58,10 @@ const Header = ({ token, setUser }) => {
         ) : (
           <div>
             <Link to="/signup">
-              <button>SIGNUP</button>
+              <button className="mainbutton">SIGNUP</button>
             </Link>
             <Link to="/login">
-              <button>LOGIN</button>
+              <button className="mainbutton">LOGIN</button>
             </Link>
           </div>
         )}
@@ -67,23 +71,3 @@ const Header = ({ token, setUser }) => {
 };
 
 export default Header;
-
-/*
-<div>
-  {token ? (
-    <button
-      onClick={() => {
-        setUser(null);
-        navigate("/");
-      }}
-    >
-      Se déconnecter
-    </button>
-  ) : (
-    <>
-      <Link to="/signup">S'inscrire</Link>
-      <Link to="/login">Se connecter</Link>{" "}
-    </>
-  )}
-</div>;
-*/

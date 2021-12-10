@@ -9,6 +9,8 @@ const Game = ({ token, setUser, game, gameId, setGameId, setGame }) => {
   const [developers, setDevelopers] = useState("");
   const [reviews, setReviews] = useState("");
   const [series, setSeries] = useState("");
+  const [error, setError] = useState("");
+  const [collection, setCollection] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,9 +48,25 @@ const Game = ({ token, setUser, game, gameId, setGameId, setGame }) => {
       } catch (error) {}
     };
     fetchData();
-  }, [game, gameId]);
+  }, []);
 
-  console.log(series);
+  const handleAddCollection = async (event) => {
+    try {
+      event.preventDefault();
+      const response = await axios.post(
+        "http://localhost:4000/user/addcollection",
+        {
+          game_id: gameId,
+          game_name: game,
+        }
+      );
+      setCollection(response.data);
+    } catch (error) {
+      if (error.response) {
+        setError(error.response.data.message);
+      }
+    }
+  };
 
   return isLoading ? (
     <p>Processing ... </p>
@@ -62,7 +80,7 @@ const Game = ({ token, setUser, game, gameId, setGameId, setGame }) => {
         <div className="rightgamepage">
           <div className="gamebuttons">
             <div className="gamebutton">
-              <button>SAVE TO COLLECTION</button>
+              <button onClick={handleAddCollection}>SAVE TO COLLECTION</button>
             </div>
 
             <Link to="/review">
@@ -123,8 +141,14 @@ const Game = ({ token, setUser, game, gameId, setGameId, setGame }) => {
         </div>
       </div>
 
-      <div>
-        <h1> GAME LIKE : {game}</h1>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <h2> Games like : {game}</h2>
       </div>
 
       <div className="ribboncontainer">

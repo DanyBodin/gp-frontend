@@ -3,31 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Home = ({ setGame, setGameId }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState("");
-  const [search, setSearch] = useState();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://api.rawg.io/api/games?key=5a7fbaf7083f4bdb95deb7ee55437b66",
-          { params: { page_size: 50000 } }
-        );
-        console.log(response.data);
-        setData(response.data);
-        setIsLoading(false);
-      } catch (error) {}
-    };
-    fetchData();
-  }, []);
-
-  const research = (event) => {
-    event.preventDefault();
-    setSearch(event.target.value);
-  };
-
+const Home = ({ setGame, setGameId, setSearch, isLoading, data }) => {
   return isLoading ? (
     <p>Processing ...</p>
   ) : (
@@ -38,8 +14,14 @@ const Home = ({ setGame, setGameId }) => {
         <p className="title">GAMEPAD</p>
 
         <form>
-          <input className="searchbar" type="text" onChange={research}></input>
-          <FontAwesomeIcon icon="search" className="search-input-icon" />
+          <input
+            className="searchbar"
+            type="text"
+            placeholder={"Tell us what you looking for"}
+            onChange={(event) => {
+              setSearch(event.target.value);
+            }}
+          ></input>
         </form>
 
         <div>
